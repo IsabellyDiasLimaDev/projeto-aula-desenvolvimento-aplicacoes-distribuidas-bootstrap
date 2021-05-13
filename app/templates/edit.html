@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Cliente</title>
+</head>
+<body>
+    <h1>Atualizar Cliente</h1>
+    <form action="/edit/{{cliente.id}}" method="POST">
+        <table border="0">
+            <tr>
+                <td>nome</td>
+                <td><input type="text" value="{{cliente.name}}" name="nome" size="40"></td>
+            </tr>
+            <tr>
+                <td>Comentário</td>
+                <td><input type="text" value="{{cliente.comment}}" name="comentario" size="40"></td>
+            </tr> 
+            <tr>
+                <th colspan="2"><button type="submit">Salvar</button></th> 
+            </tr>
+        </table>     
+    </form>
+</body>
+</html>

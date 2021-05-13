@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cadastro de Cliente</h1>
+        <a href="/add">
+            <img width="30px" src="{{url_for('static', filename='image/add.png')}}" alt="adicionar" srcset="">
+        </a>
+        <br />
+        <table class="table table-striped" border="0" width="70%">
+            <thead>
+                <tr>
+                    <th escope="col">ID</th>
+                    <th escope="col">Nome</th>
+                    <th escope="col">Comentário</th>
+                    <th escope="col">Ações</th>
+            </thead>
+            <tbody>
+                {% for c in clientes %}
+                <tr>
+                    <td>{{c.id}}</td>
+                    <td>{{c.name}}</td>
+                    <td>{{c.comment}}</td>
+                    <td>
+                        <a href="/edit/{{c.id}}"><img width="30px" src="{{url_for('static', filename='image/edit.png')}}" alt="editar" srcset=""></a>
+                        <a href="/delete/{{c.id}}"><img width="30px" src="{{url_for('static', filename='image/delete.png')}}" alt="apagar" srcset=""></a>
+                    </td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

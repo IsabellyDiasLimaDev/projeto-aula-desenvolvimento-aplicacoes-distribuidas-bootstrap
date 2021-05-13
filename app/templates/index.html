@@ -5,38 +5,62 @@
     <meta charset="UTF-8">
     <title>Cadastro de Cliente</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
 </head>
 
 <body>
     <div class="container">
-        <h1>Cadastro de Cliente</h1>
-        <a href="/add">
-            <img width="30px" src="{{url_for('static', filename='image/add.png')}}" alt="adicionar" srcset="">
-        </a>
-        <br />
-        <table class="table table-striped" border="0" width="70%">
-            <thead>
-                <tr>
-                    <th escope="col">ID</th>
-                    <th escope="col">Nome</th>
-                    <th escope="col">Comentário</th>
-                    <th escope="col">Ações</th>
-            </thead>
-            <tbody>
-                {% for c in clientes %}
-                <tr>
-                    <td>{{c.id}}</td>
-                    <td>{{c.name}}</td>
-                    <td>{{c.comment}}</td>
-                    <td>
-                        <a href="/edit/{{c.id}}"><img width="30px" src="{{url_for('static', filename='image/edit.png')}}" alt="editar" srcset=""></a>
-                        <a href="/delete/{{c.id}}"><img width="30px" src="{{url_for('static', filename='image/delete.png')}}" alt="apagar" srcset=""></a>
-                    </td>
-                </tr>
-                {% endfor %}
-        </table>
+        <header>
+            <nav>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agenda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contatos</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="alert alert-primary" role="alert">
+                <h1>Cadastro de Cliente</h1>
+            </div>
+            <a href="/add">
+                <img width="30px" src="{{url_for('static', filename='image/add.png')}}" alt="adicionar" class="mb-2">
+            </a>
+            <br />
+            <table class="table table-striped" border="0" width="70%">
+                <thead>
+                    <tr>
+                        <th escope="col">ID</th>
+                        <th escope="col">Nome</th>
+                        <th escope="col">Comentário</th>
+                        <th escope="col">Ações</th>
+                </thead>
+                <tbody>
+                    {% for c in clientes %}
+                    <tr>
+                        <td>{{c.id}}</td>
+                        <td>{{c.name}}</td>
+                        <td>{{c.comment}}</td>
+                        <td>
+                            <a href="/edit/{{c.id}}"><img width="30px" src="{{url_for('static', filename='image/edit.png')}}" alt="editar" srcset=""></a>
+                            <a href="/delete/{{c.id}}"><img width="30px" src="{{url_for('static', filename='image/delete.png')}}" alt="apagar" srcset=""></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </section>
     </div>
 </body>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
 </html>
